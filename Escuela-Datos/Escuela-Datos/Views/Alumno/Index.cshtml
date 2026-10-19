@@ -1,0 +1,41 @@
+﻿@using Escuela_Datos.Models
+
+@{
+    var model = (IEnumerable<Alumno>)ViewBag.Alum;
+}
+
+<h2>Alumnos</h2>
+<a asp-action="Create" class="btn btn-success" >Crear</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>IdAlumno</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Apellido</th>
+            <th>Escuela</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in model)
+        {
+            <tr>
+                <td>@item.IdAlumno</td>
+                <td>@item.NombreA</td>
+                <td>@item.Correo</td>
+                <td>@item.Apellido</td>
+                <td>@item.Escuela.IdEscuela</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.IdAlumno" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.IdAlumno" class="btn btn-warning">Editar</a>
+         
+                    <a asp-action="Delete" asp-route-id="@item.IdAlumno" class="btn btn-danger">Eliminar</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

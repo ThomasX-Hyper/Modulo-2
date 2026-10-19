@@ -1,0 +1,52 @@
+@model Escuela_Datos.Models.Alumno
+@using Escuela_Datos.Data.AccesoDatos
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Alumno</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="NombreA" class="control-label"></label>
+                <input asp-for="NombreA" class="form-control" />
+                <span asp-validation-for="NombreA" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Apellido" class="control-label"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Correo" class="control-label"></label>
+                <input asp-for="Correo" class="form-control" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IdEscuela" class="control-label"></label>
+                <select asp-for="IdEscuela" class="form-control"
+                        asp-items="@(new SelectList(new DAEscuela().GetEscuelas(), "IdEscuela", "nombre"))"></select>
+                <span asp-validation-for="IdEscuela" class="text-danger"></span>
+            </div>
+
+           a
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,39 @@
+﻿@model Escuela_Datos.Models.Alumno
+
+@{
+    ViewData["Title"] = "Detalle de alumno";
+
+
+}
+
+<h2>Detalle Alumno</h2>
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Id Alumno</dt>
+            <dd class="col-sm-9">@Model.IdAlumno</dd>
+
+            <dt class="col-sm-3">NombreA</dt>
+            <dd class="col-sm-9">@Model.NombreA</dd>
+
+            <dt class="col-sm-3">Apellido</dt>
+            <dd class="col-sm-9">@Model.Apellido</dd>
+
+            <dt class="col-sm-3">Id Escuela</dt>
+            <dd class="col-sm-9">@Model.IdEscuela</dd>
+
+            <dt class="col-sm-3">Nombre Escuela</dt>
+            <dd class="col-sm-9">@Model.Escuela.nombre</dd>
+
+
+        </dl>
+
+
+    </div>
+
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.IdAlumno" class="btn btn-warning">Editar</a>
+<a asp-action="Index"  class="btn btn-secondary">Volver</a>
+
+         

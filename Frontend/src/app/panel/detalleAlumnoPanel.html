@@ -1,0 +1,37 @@
+<div class="contenedor">
+  <h1>Alumnos</h1>
+
+  <div class="usuario">
+      <span>{{ usuario }}</span>
+      <div class="avatar">{{ inicial }}</div>
+    </div>
+
+  @if (error()) {
+    <p class="error">No se pudo cargar la tabla</p>
+  }
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Escuela</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (a of lista(); track a.idAlumno) {
+        <tr>
+          <td>{{ a.idAlumno }}</td>
+          <td>{{ a.nombreA }}</td>
+          <td>{{ a.apellido }}</td>
+          <td>{{ a.correo }}</td>
+          <td>{{ a.escuela?.nombre}}</td>
+        </tr>
+      } @empty {
+        <tr><td colspan="5">No hay registros</td></tr>
+      }
+    </tbody>
+  </table>
+</div>
